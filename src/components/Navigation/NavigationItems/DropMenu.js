@@ -38,8 +38,7 @@ const DropMenu = (props) => {
   const classes = useStyles();
   const { isAuthenticated } = props;
   const matchMD = useMediaQuery("(min-width:960px)");
-  const localTheme = JSON.parse(localStorage.getItem("darkTheme"));
-
+ 
  
 
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(false);

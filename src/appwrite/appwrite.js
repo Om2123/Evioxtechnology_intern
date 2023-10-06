@@ -17,7 +17,7 @@ const BUCKET_ID = "651fc5698e0af2551097";
 // athentication
 
 const CreateUser = async (email, password) => {
-  const user = await account
+   await account
     .create(ID.unique(), email, password, email)
     .then(function (response) {
       console.log(response);
@@ -41,7 +41,7 @@ const logIn = async (email, password) => {
 
 // database operations
 const createCourse = (cName, cAuthor, mp4) => {
-  const promise = databases
+   databases
     .createDocument(DATABASE_ID, COLLECTION_ID, ID.unique(), {
       courseName: cName,
       courseAuthor: cAuthor,

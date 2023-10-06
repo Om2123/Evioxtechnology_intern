@@ -4,13 +4,13 @@ import { storage } from '../../appwrite/appwrite';
 const CourseContainer = ({ courseName, courseAuthor, videoUrl, file_id }) => {
   const [file, setVideoFile] = useState("");
 
-  useEffect(() => {
+  useEffect( () => {
     const cmp4 = storage.getFileView('651fc5698e0af2551097', file_id);
     if (cmp4) {
       setVideoFile(cmp4)
     }
 
-  }, [])
+  },[file_id])
   return (
     <div className="bg-blue-500 p-4 m-3  rounded-lg shadow-lg">
       <h2 className="text-3xl font-semibold">{courseName}</h2>

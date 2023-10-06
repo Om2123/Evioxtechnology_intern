@@ -11,7 +11,6 @@ import tileimage3 from "../../assets/images/blog/img-3.jpg";
 import tileimage4 from "../../assets/images/blog/img-4.jpg";
 import tileimage5 from "../../assets/images/blog/img-5.jpg";
 import CountUp from "react-countup";
-import heroImage from "../../assets/images/home-hero4.jpg";
 import { AllInclusive, Bookmark, LiveTv } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core";
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { createCourse, databases, storage } from '../../appwrite/appwrite';
+import { createCourse, databases } from '../../appwrite/appwrite';
 import CourseContainer from './CourseContainer';
 
 export default function Courses() {
