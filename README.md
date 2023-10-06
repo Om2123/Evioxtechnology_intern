@@ -3,8 +3,8 @@ Projects related to intership in Eviox
 
 # e-learning platform 
 
-features
--authentication 
--course upload
--course view 
--video streaming
+features </br>
+-authentication</br> 
+-course upload</br>
+-course view </br>
+-video streaming</br>
