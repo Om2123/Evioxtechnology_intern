@@ -8,22 +8,21 @@ functionality, secure payment processing, and order management.
 <h2>
 # Features
 </h2>
-</br>
 -user registraion **
 </br>
--product reviews
-</br>
 -shopping cart **
+</br>
+-browse products  **
+</br>
+- purchase products **
+</br>
+-product reviews
 </br>
 -secure payment processing
 </br>
 -order management
 </br>
--browse products  **
-</br>
 -search products
 </br>
 -view products
-</br>
-- purchase products **
 
