@@ -2,12 +2,14 @@ import React, { useEffect } from "react";
 import Product from "./Product";
 import "../styles/Home.css";
 import { getProducts } from "../firebase/firebase";
+import { useStateValue } from "../States/StateProvider";
 
 function Home() {
   const [products, setProducts] = React.useState([]);
 
   useEffect(() => {
     getProducts().then((products) => setProducts(products.docChanges));
+    
   }, []);
 
   const renderLargeProducts = () => {
@@ -25,7 +27,6 @@ function Home() {
         />
       ));
   };
-
   const renderSmallProducts = () => {
     return products
       .slice(2)
@@ -43,7 +44,7 @@ function Home() {
   };
 
   return (
-    <div className="home">
+    <div className="home" id="home">
       <div className="home__container">
         <img
           className="home__image"

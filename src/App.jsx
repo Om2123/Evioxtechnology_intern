@@ -14,7 +14,7 @@ const HomePage = () => {
   return (
     <React.Fragment>
       <Checkout />
-      <Subtotal/>
+      <Subtotal />
     </React.Fragment>
   );
 };
@@ -25,7 +25,7 @@ function App() {
   return (
     <BrowserRouter basename="/Amazon-Clone">
       <div className="app">
-        <Header/>
+        <Header />
         <Routes>
           {/* Home Page Route */}
           <Route path="/login" Component={Login} />
@@ -33,7 +33,7 @@ function App() {
           <Route path="/" Component={Home}></Route>
           <Route path="/checkoutForm" Component={CheckoutForm} ></Route>
         </Routes>
-        <Foot/>
+        <Foot />
       </div>
     </BrowserRouter>
   );

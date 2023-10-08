@@ -1,10 +1,8 @@
 export const initialState = {
     basket: [],
-    // user: null,
+    productList:[]
   };
   //Selector
-  // export const getBasketTotal = (basket) =>
-  //   basket?.reduce((amount, item) => item.price + amount, 0);
   export const getBasketTotal = (basket) =>
     basket?.reduce((amount, item) => item.price + amount, 0);
   
@@ -16,6 +14,11 @@ export const initialState = {
           ...state,
           basket: [...state.basket, action.item],
         };
+      case "AddProduct":
+        return {
+          ...state,
+          productsList: [...state.products, action.item],
+        }
       case "REMOVE_FROM_BASKET":
         const index = state.basket.findIndex(
           (basketItem) => basketItem.id === action.id

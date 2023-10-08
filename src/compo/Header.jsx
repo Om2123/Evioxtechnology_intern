@@ -1,5 +1,5 @@
 import { collection, query, where, getDocs } from "firebase/firestore";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,19 +9,38 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../States/StateProvider";
-import { db } from "../firebase/firebase";
+import { db, getProducts } from "../firebase/firebase";
 
 function Header() {
   const [{ basket }] = useStateValue();
   const [querySearched, setQuery] = useState("");
   const [showProductList, setShowProductList] = useState(false);
+  const [products, setProducts] = React.useState([]);
 
+
+  useEffect(() => {
+    getProducts().then((products) => setProducts(products.docChanges));
+
+  }, [])
+
+  const filteredData = products.filter((item) => {
+    const title = item.doc.data.value.mapValue.fields.title.stringValue; // Access the title field
+    if(title.toLowerCase().includes(querySearched.toLowerCase()))
+    {
+     
+      return item;
+    }
+    return null;
+    // Check if the title includes the search word (case insensitive)
+    // return title.toLowerCase().includes(querySearched.toLowerCase());
+  });
+  
   const handleSearch = async () => {
-    const q = query(collection(db, "productsC"), where("title", "==", "f"));
-
-    const querySnapshot = await getDocs(q);
-    console.log(querySnapshot);
     // Show the product list when the search button is clicked or Enter is pressed.
+    // if(querySearched in products.doc.data.value.mapValue.fields.title.stringValue)
+    // {
+      setProducts(filteredData)
+    // }
     setShowProductList(true);
   };
 
@@ -64,29 +83,30 @@ function Header() {
         </div>
       </div>
 
-      {showProductList && (
+      {showProductList && products? (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
           <div className="bg-white p-4 rounded-lg shadow-lg">
             <h2 className="text-2xl font-semibold m-4">Searched List</h2>
-            <ul>
-              {/* {products.map((product) => (
-              <li key={product.id} className="mb-2">
-                <div className="font-semibold">{product.name}</div>
-                <div className="text-gray-600">{product.description}</div>
+            <ul className="overflow-scroll max-h-72">
+              {products.map((product) => (
+              <li  className="mb-2 border flex  p-2">
+                <img src={product.doc.data.value.mapValue.fields.image.stringValue} className="w-10 m-2 h-10" alt="" />
+                <div className="font-semibold text-center">{product.doc.data.value.mapValue.fields.title.stringValue}</div>
+                <div className="text-white text-center font-semibold text-xl m-2 bg-red-400  rounded">{product.doc.data.value.mapValue.fields.price.integerValue}</div>
               </li>
-            ))} */}
+            ))}
             </ul>
             <button
               className="bg-red-500 text-white px-4 py-2 mt-4 rounded hover:bg-red-600"
               onClick={() => {
-                setShowProductList(false);
+                setShowProductList(false); 
               }}
             >
               Close
             </button>
           </div>
         </div>
-      )}
+      ): <div className="text-xl">Not found..</div>}
 
       <div className="header_nav">
 

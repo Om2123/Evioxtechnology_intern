@@ -1,22 +1,15 @@
-import React, { useState  } from "react";
-// import useHistory from "react-router-dom";
-import { signIn ,createAccount} from "./../firebase/firebase.js";
+import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+import { signIn, createAccount } from "./../firebase/firebase.js";
 import { Link } from "react-router-dom";
 import "../styles/Login.css";
 
 function Login() {
-  // const history = useHistory();
+  const history = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const signInT = (e) => {
-    e.preventDefault();
-    signIn(email, password) 
-
-  };
-  const regester = (e) => {
-    e.preventDefault();
-    createAccount(email, password) 
-  };
+  const signInT = (e) => { e.preventDefault(); signIn(email, password); history("/") };
+  const regester = (e) => { e.preventDefault(); createAccount(email, password);history("/") };
   return (
     <div className="login">
       <Link to="/">
