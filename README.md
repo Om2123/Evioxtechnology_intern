@@ -16,13 +16,12 @@ functionality, secure payment processing, and order management.
 </br>
 - purchase products **
 </br>
+-search products **
+</br>
+-view products **&**
+</br>
 -product reviews
 </br>
 -secure payment processing
 </br>
 -order management
-</br>
--search products
-</br>
--view products
-
