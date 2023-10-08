@@ -10,18 +10,18 @@ function Subtotal() {
   const sumOfBasket = basket.reduce((sum, product) => sum + product.price, 0);
   return (
     <div className="subtotal">
-    <h4>Subtotal {basket.length} item:  {sumOfBasket} rs </h4>
-    <h7> <input type="checkbox" /> This order contains a gift</h7>
-    {basket.length !== 0 ? (
-      <Link to="/checkoutForm">
-        <button style={styles.enabledButton}>Proceed to Checkout</button>
-      </Link>
-    ) : (
-      <button disabled style={styles.disabledButton}>
-      Proceed to Checkout
-    </button>
-        )}
-  </div>
+      <h4>Subtotal {basket.length} item:  {sumOfBasket} rs </h4>
+      <h7> <input type="checkbox" /> This order contains a gift</h7>
+      {basket.length !== 0 ? (
+        <Link to="/checkoutForm">
+          <button style={styles.enabledButton}>Proceed to Checkout</button>
+        </Link>
+      ) : (
+        <button disabled style={styles.disabledButton}>
+          Proceed to Checkout
+        </button>
+      )}
+    </div>
   );
 }
 
