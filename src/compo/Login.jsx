@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { signIn, createAccount } from "./../firebase/firebase.js";
+import { signIn } from "./../firebase/firebase.js";
 import { Link } from "react-router-dom";
 import "../styles/Login.css";
 

@@ -53,14 +53,4 @@ function Subtotal() {
 
 
 export default Subtotal;
-const styles = {
-  enabledButton: {
-    backgroundColor: '#f0c14b',
-    color: '#111',
-    cursor: 'pointer',
-  },
-  disabledButton: {
-    backgroundColor: '#ffffff',
-    cursor: 'not-allowed',
-  },
-};
+ 
