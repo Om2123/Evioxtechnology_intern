@@ -1,22 +1,43 @@
-# Evioxtechnology_intern
-Projects related to intership in Eviox 
 <h1>
-# e-learning platform 
+# Amazon-clone 
 </h1>
-<b>
-features </br>
-</b>
--authentication</br> 
--course creation</br>
--video streaming</br>
--quizzes</br>
--Progress Tracking</br>
+A Full-Featured E-commerce Website Amazon clone web application
+will allow users to browse, search for, view, and purchase products. It will also
+incorporate features such as user registration, product reviews, shopping cart
+functionality, secure payment processing, and order management.
+<h2>
+# Features
+</h2>
+-user registraion **
+</br>
+-shopping cart **
+</br>
+-browse products  **
+</br>
+- purchase products **
+</br>
+-search products **
+</br>
+-view products **&**
+</br>
+-product reviews
+</br>
+-secure payment processing
+</br>
+-order management
 
-<b>Images</b>
-![image](https://github.com/Om2123/Evioxtechnology_intern/assets/98630920/9c95edd7-e93d-4273-bbc4-136725258083)
-![image](https://github.com/Om2123/Evioxtechnology_intern/assets/98630920/6d9150d2-72dc-497a-9e56-87166bc99b89)
-![image](https://github.com/Om2123/Evioxtechnology_intern/assets/98630920/2bc2c566-4f5f-48c8-9ea1-169cf89c6489)
-![image](https://github.com/Om2123/Evioxtechnology_intern/assets/98630920/87817b61-21b5-4fa8-ab34-802b2afddd66)
-![image](https://github.com/Om2123/Evioxtechnology_intern/assets/98630920/6e7cea7d-821a-4cbc-8c6c-289bf4be469b)
-![image](https://github.com/Om2123/Evioxtechnology_intern/assets/98630920/a3bc9e8e-ce6c-4cac-a60f-137fded46de9)
-![image](https://github.com/Om2123/Evioxtechnology_intern/assets/98630920/107be246-6cef-40cf-8feb-3efe5f3af0d2)
+ <h2>How to use payment gateway ?</h2>
+ In order to use payment in app you need to follow these steps:
+ 1.Move to directory /src/payment
+ 2.Run this command node stripe.js
+ Then you can see that its working in your machine.
+ <b>
+ Note : In this deployed app payment integration won't work cause it need to start the express server.
+ </b>
+<h2> #Images </h2>
+![image](https://github.com/Om2123/Evioxtechnology_intern/assets/98630920/5a1e11f3-664b-4950-9b25-5c9169d64b07)
+![image](https://github.com/Om2123/Evioxtechnology_intern/assets/98630920/50d8a3f7-e1ba-44f1-b61d-3f575ac1e7c6)
+![image](https://github.com/Om2123/Evioxtechnology_intern/assets/98630920/eb80a674-fb98-48de-88d6-bcd327692eb2)
+![image](https://github.com/Om2123/Evioxtechnology_intern/assets/98630920/c5053adc-f892-497e-a4e8-c6adb4ab9a60)
+![image](https://github.com/Om2123/Evioxtechnology_intern/assets/98630920/3d27c89e-517b-4b50-b366-4c46a3072045)
+
