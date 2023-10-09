@@ -26,11 +26,11 @@ functionality, secure payment processing, and order management.
 </br>
 -order management
 
- <h2>How to use payment gateway ?</h2>
- In order to use payment in app you need to follow these steps:
- 1.Move to directory /src/payment
- 2.Run this command node stripe.js
- Then you can see that its working in your machine.
+ <h2>How to use payment gateway ?</h2></br>
+ In order to use payment in app you need to follow these steps:</br>
+ 1.Move to directory /src/payment</br>
+ 2.Run this command node stripe.js</br>
+ Then you can see that its working in your machine.</br>
  <b>
  Note : In this deployed app payment integration won't work cause it need to start the express server.
  </b>
