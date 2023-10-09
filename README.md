@@ -34,5 +34,4 @@ in case if one gets broken</br>
 -order management
 <h2> #Images </h2>
 
-![image](https://github.com/Om2123/Evioxtechnology_intern/assets/98630920/3d27c89e-517b-4b50-b366-4c46a3072045)
 
