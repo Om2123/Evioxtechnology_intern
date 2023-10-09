@@ -21,7 +21,7 @@ const analytics = getAnalytics(app);
 
 const auth = getAuth();
 const createAccount = (email, password) => {
-  createUserWithEmailAndPassword(auth, email, password)
+  createUserWithEmailAndPassword(auth, email,password)
     .then((userCredential) => {
       // Signed up
       const user = userCredential.user;

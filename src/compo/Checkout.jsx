@@ -3,6 +3,7 @@ import "../styles/Checkout.css";
 import CheckoutProduct from "./CheckoutProduct";
 import { useStateValue } from "../States/StateProvider";
 function Checkout() {
+  
   const [{ basket }] = useStateValue();
   return (
     <div className="checkout">

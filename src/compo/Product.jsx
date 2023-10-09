@@ -4,11 +4,11 @@ import "../styles/Product.css";
 import { useStateValue } from "../States/StateProvider";
 
 function Product({ id, title, image, price, rating }) {
-  const [{ basket }, dispatch] = useStateValue();
+  const [dispatch] = useStateValue();
   // console.log(basket);
-  const addToBasket =  () => {
+  const addToBasket = () => {
     //dispatch item to data layer
-    
+
     dispatch({
       type: "ADD_TO_BASKET",
       item: {
@@ -29,11 +29,7 @@ function Product({ id, title, image, price, rating }) {
           <strong>{price}</strong>
         </p>
         <div className="product__rating">
-          {Array(rating)
-            .fill()
-            .map((_, i) => (
-              <p>🌟</p>
-            ))}
+          <p >🌟🌟🌟</p>
         </div>
       </div>
       <img src={image} alt="canva" />
@@ -42,7 +38,7 @@ function Product({ id, title, image, price, rating }) {
         <span>Add to Cart</span>
       </button>
 
-    
+
     </div>
   );
 }
