@@ -6,6 +6,13 @@ will allow users to browse, search for, view, and purchase products. It will als
 incorporate features such as user registration, product reviews, shopping cart
 functionality, secure payment processing, and order management.
 <h2>
+# Link
+</h2></br>
+firebase - https://fir-64f41.web.app/ </br>
+netlify  - https://amazon-clone-om2123.netlify.app/</br>
+vercel - coming soon </br>
+in case if one gets broken</br>
+<h2>
 # Features
 </h2>
 -user registraion **
