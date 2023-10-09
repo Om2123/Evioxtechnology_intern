@@ -34,9 +34,52 @@ app.post('/create-checkout-session', async (req, res) => {
     success_url: `${YOUR_DOMAIN}/success`,
     cancel_url: `${YOUR_DOMAIN}/Amazon-Clone/checkout`,
   });
-
 res.json({ sessionUrl: session.url });
 });
+
+app.post("/single-product-checkout" , async(req,res) => {
+    const session = await stripe.checkout.sessions.create({
+        line_items: [{
+            quantity: 1,
+            price_data: {
+              currency: 'inr',
+              unit_amount: req.body.product.price.integerValue  * 100,
+              product_data: {
+                name: req.body.product.title.stringValue,
+                description: req.body.product.title.stringValue,
+                images: [req.body.product.image.stringValue],
+              },
+            },
+    
+          }],
+        mode: 'payment',
+        success_url: `${YOUR_DOMAIN}/success`,
+        cancel_url: `${YOUR_DOMAIN}/Amazon-Clone/product/${req.body.id}`,
+      });
+    res.json({ sessionUrl: session.url });
+})
+
+app.post("/single-product-checkout-withoutId" , async(req,res) => {
+    const session = await stripe.checkout.sessions.create({
+        line_items: [{
+            quantity: 1,
+            price_data: {
+              currency: 'inr',
+              unit_amount: req.body.product.price.integerValue  * 100,
+              product_data: {
+                name: req.body.product.title.stringValue,
+                description: req.body.product.title.stringValue,
+                images: [req.body.product.image.stringValue],
+              },
+            },
+    
+          }],
+        mode: 'payment',
+        success_url: `${YOUR_DOMAIN}/success`,
+        cancel_url: `${YOUR_DOMAIN}/Amazon-Clone/`,
+      });
+    res.json({ sessionUrl: session.url });
+})
  
 
 app.listen(4242, () => console.log('Running on port 4242'));
