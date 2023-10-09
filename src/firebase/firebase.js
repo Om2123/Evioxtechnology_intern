@@ -1,10 +1,9 @@
 import { getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword} from "firebase/auth";
 
-import {  getFirestore, collection,  getDocs, addDoc } from "firebase/firestore";
+import {  getFirestore, collection,  getDocs, addDoc,  getDoc, doc } from "firebase/firestore";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import firebaseConfig from "./config";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -14,7 +13,6 @@ import firebaseConfig from "./config";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 
 // authentication
 // creating and signing in user
@@ -30,7 +28,6 @@ const createAccount = (email, password) => {
       // ...
     })
     .catch((error) => {
-      const errorCode = error.code;
       const errorMessage = error.message;
       // ..
       alert(errorMessage);
@@ -47,7 +44,6 @@ const signIn = (email, password) => {
       // ...
     })
     .catch((error) => {
-      const errorCode = error.code;
       const errorMessage = error.message;
       alert(errorMessage);
       console.log(errorMessage);
@@ -79,9 +75,26 @@ const db = getFirestore(app);
     }
   }
   const getProducts= async()=> {
-    const querySnapshot = await getDocs(collection(db, "productsC"));
-    return querySnapshot._snapshot;
+    try {
+      
+      const querySnapshot = await getDocs(collection(db, "productsC" ));
+      return querySnapshot._snapshot;
+    } catch (error) {
+      console.log(error.message);
+    }
   }
- 
+  const getProductById = async(id)=>{
+    try {
+      const docRef = doc(db, "productsC", id.id);
+      const docSnap = await getDoc(docRef);
 
-export {addProduct,db,getProducts};
+      return docSnap._document.data.value.mapValue.fields;
+    } catch (error) {
+      console.log(error.message);
+      
+    }
+    
+  }
+  
+
+export {addProduct,db,getProducts,getProductById };

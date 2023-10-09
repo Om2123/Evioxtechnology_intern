@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/AddButton.css";
 import "../styles/Product.css";
 import { useStateValue } from "../States/StateProvider";
+import { Link } from "react-router-dom";
 
 function Product({ id, title, image, price, rating }) {
   const [dispatch] = useStateValue();
@@ -21,7 +22,7 @@ function Product({ id, title, image, price, rating }) {
     });
   };
   return (
-    <div className="product">
+    <Link to={`/product/${id}`}  className="product" >
       <div className="product__info">
         <p>{title}</p>
         <p className="product__price">
@@ -39,7 +40,7 @@ function Product({ id, title, image, price, rating }) {
       </button>
 
 
-    </div>
+    </Link>
   );
 }
 

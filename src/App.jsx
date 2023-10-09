@@ -11,6 +11,7 @@ import Subtotal from "./compo/Subtotal";
 import Notfound from "./compo/NotFound/Notfound";
 import Orders from "./compo/Orders";
 import Register from "./compo/Register";
+import ProductDetail from "./compo/product/ProductDetail";
 
 const HomePage = () => {
   return (
@@ -32,6 +33,7 @@ function App() {
           {/* Home Page Route */}
           <Route path="/login" Component={Login} />
           <Route path="/register" Component={Register} />
+          <Route path="/product/:id" Component={ProductDetail} />
           <Route path="/checkout" Component={HomePage}></Route>
           <Route path="/" Component={Home}></Route>
           <Route path="/*" Component={Notfound}></Route>

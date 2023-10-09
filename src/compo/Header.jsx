@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { useStateValue } from "../States/StateProvider";
 import { getProducts } from "../firebase/firebase";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
+import axios from "axios";
 
 function Header() {
   const [{ basket }] = useStateValue();
@@ -25,8 +26,20 @@ function Header() {
     onAuthStateChanged(auth, (authUser) => {
       setUser(authUser);
     });
-  }, [])
-
+  })
+  const buyNow = (product) => {
+    axios.post('http://localhost:4242/single-product-checkout-withoutId', { product }, {
+      headers: {
+        'Content-Type': 'application/json', // Set the content type to JSON
+      },
+    })
+      .then(response => {
+        window.location.href = response.data.sessionUrl
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+  }
   const filteredData = products.filter((item) => {
     const title = item.doc.data.value.mapValue.fields.title.stringValue; // Access the title field
     if (title.toLowerCase().includes(querySearched.toLowerCase())) return item;
@@ -76,17 +89,33 @@ function Header() {
         </div>
       </div>
 
-      {showProductList &&  (
+      {showProductList && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
           <div className="bg-white p-4 rounded-lg shadow-lg">
             <h2 className="text-2xl font-semibold m-4">Searched List</h2>
             <ul className="overflow-scroll max-h-72">
-              {products.map((product) => (
-                
-                <li className="mb-2 border flex  p-2" key={product.doc.key.path.segments[6]}>
-                  <img src={product.doc.data.value.mapValue.fields.image.stringValue} className="w-10 m-2 h-10" alt="" />
-                  <div className="font-semibold text-center">{product.doc.data.value.mapValue.fields.title.stringValue}</div>
-                  <div className="text-white text-center font-semibold text-xl m-2 bg-red-400  rounded">{product.doc.data.value.mapValue.fields.price.integerValue}</div>
+              {products.map((product) =>
+              (
+
+                <li className="mb-2 border md:flex  p-2" key={product.doc.key.path.segments[6]}>
+                  <img src={product.doc.data.value.mapValue.fields.image.stringValue} className="w-12 m-2 h-12" alt="" />
+                  <Link to={`/product/${product.doc.key.path.segments[6]}`} className="text-stone-500 hover:underline">
+                    <div className="font-semibold text-center">{product.doc.data.value.mapValue.fields.title.stringValue}</div>
+                    <div className="text-black  font-semibold text-md   ">${product.doc.data.value.mapValue.fields.price.integerValue}</div>
+                  </Link>
+                  <div className="md:ml-5">
+                    <button
+                      className="bg-yellow-500 text-white font-semibold py-2 px-4 rounded-full mr-4 hover:bg-yellow-600 transition duration-300"
+                    >
+                      Add to Cart
+                    </button>
+                    <button
+                      onClick={() => buyNow(product.doc.data.value.mapValue.fields)}
+                      className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-full hover:bg-blue-600 transition duration-300"
+                    >
+                      Buy Now
+                    </button>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -100,7 +129,7 @@ function Header() {
             </button>
           </div>
         </div>
-      ) }
+      )}
 
       <div className="header_nav">
 
