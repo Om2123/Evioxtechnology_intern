@@ -1,6 +1,6 @@
 import { getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword} from "firebase/auth";
 
-import {  getFirestore, collection,  getDocs, addDoc,  getDoc, doc } from "firebase/firestore";
+import {  getFirestore, collection,  getDocs, addDoc,  getDoc, doc, where, query } from "firebase/firestore";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -95,6 +95,32 @@ const db = getFirestore(app);
     }
     
   }
-  
+  const getComments= async(title)=>{
+    try {
+      const q = query(collection(db, "reviews"), where("title", "==", title));
 
-export {addProduct,db,getProducts,getProductById };
+      const docSnap = await getDocs(q);
+      let a = [];
+      docSnap._snapshot.docChanges.forEach((doc) => {
+        a.push(doc.doc.data.value.mapValue)
+      })
+      // console.log(a);
+      return a;
+    } catch (error) {
+        console.log(error.message);
+    }
+  }
+  const addNewReview = async(title,newReview)=>{
+    try {
+      const docRef = await addDoc(collection(db, "reviews"), {
+        title: title,
+        review:newReview
+      });
+
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+  }
+
+export {addProduct,db,getProducts,getComments,getProductById ,addNewReview};
