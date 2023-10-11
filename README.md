@@ -33,5 +33,11 @@ in case if one gets broken</br>
 </br>
 -order management
 <h2> #Images </h2>
+![image](https://github.com/Om2123/Evioxtechnology_intern/assets/98630920/8a223698-8886-45a8-8ad3-d4f54d6084eb)
+![image](https://github.com/Om2123/Evioxtechnology_intern/assets/98630920/aecbd8e0-b34f-474a-b383-43eab4e99140)
+![image](https://github.com/Om2123/Evioxtechnology_intern/assets/98630920/c659ca92-ca14-432c-a60a-5f0285ad1642)
+![image](https://github.com/Om2123/Evioxtechnology_intern/assets/98630920/25133e86-03b8-47e3-b9d9-58aaccf6a46a)
+
+
 
 
