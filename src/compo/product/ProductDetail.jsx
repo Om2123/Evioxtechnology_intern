@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getProductById } from '../../firebase/firebase';
 import axios from 'axios';
 import Reviews from './Reviews';
+import {getProductById} from "./../../firebase/productDb"
 
 export default function ProductDetail() {
   const [product, setProducts] = useState();

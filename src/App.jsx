@@ -15,7 +15,7 @@ import ProductDetail from "./compo/product/ProductDetail";
 import { store } from './States/store'
 import { Provider } from 'react-redux'
 
-const HomePage = () => {
+const cart = () => {
   return (
     <React.Fragment>
       <Checkout />
@@ -37,7 +37,7 @@ function App() {
             <Route path="/login" Component={Login} />
             <Route path="/register" Component={Register} />
             <Route path="/product/:id" Component={ProductDetail} />
-            <Route path="/checkout" Component={HomePage}></Route>
+            <Route path="/checkout" Component={cart}></Route>
             <Route path="/" Component={Home}></Route>
             <Route path="/*" Component={Notfound}></Route>
             <Route path="/orders" Component={Orders}></Route>

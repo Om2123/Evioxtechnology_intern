@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import React, { useEffect } from 'react'
-import { addNewReview, getComments } from '../../firebase/firebase';
+import { addNewReview, getComments } from '../../firebase/reviewsDb';
 
 export default function Reviews(props) {
     const [reviews, setReviews] = useState();

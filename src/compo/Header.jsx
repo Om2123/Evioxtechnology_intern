@@ -7,11 +7,11 @@ import {
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { getProducts } from "../firebase/firebase";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { addToBasket } from "../States/feat/cart/basketSlice";
+import { getProducts } from "../firebase/productDb";
 
 function Header() {
   const basket = useSelector((state) => state.counter.basket)
@@ -156,10 +156,10 @@ function Header() {
               </div>
             </Link>
             :
-            <div className="header__link" onClick={logout}>
+            <div className="header__link">
               <div className="header__option">
-                <span className="header__optionLineOne">Hello {user?.email} </span>
-                <span className="header__optionLineTwo">Log out</span>
+                <Link to={"/orders"} className="header__optionLineOne">Hello {user?.email} </ Link>
+                <span className="header__optionLineTwo"  onClick={logout}>Log out</span>
               </div>
             </div>
         }

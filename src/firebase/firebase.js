@@ -1,6 +1,6 @@
 import { getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword} from "firebase/auth";
 
-import {  getFirestore, collection,  getDocs, addDoc,  getDoc, doc, where, query } from "firebase/firestore";
+import {  getFirestore} from "firebase/firestore";
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -53,74 +53,8 @@ export { signIn, createAccount };
 
 
 // database
-// 
 
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
-
-//
-
-  async function addProduct({ title, image, price, rating }) {
-    try {
-      const docRef = await addDoc(collection(db, "productsC"), {
-        title: title,
-        image: image,
-        price: price,
-        rating: rating,
-      });
-
-      console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    }
-  }
-  const getProducts= async()=> {
-    try {
-      
-      const querySnapshot = await getDocs(collection(db, "productsC" ));
-      return querySnapshot._snapshot;
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
-  const getProductById = async(id)=>{
-    try {
-      const docRef = doc(db, "productsC", id.id);
-      const docSnap = await getDoc(docRef);
-
-      return docSnap._document.data.value.mapValue.fields;
-    } catch (error) {
-      console.log(error.message);
-      
-    }
-    
-  }
-  const getComments= async(title)=>{
-    try {
-      const q = query(collection(db, "reviews"), where("title", "==", title));
-
-      const docSnap = await getDocs(q);
-      let a = [];
-      docSnap._snapshot.docChanges.forEach((doc) => {
-        a.push(doc.doc.data.value.mapValue)
-      })
-      // console.log(a);
-      return a;
-    } catch (error) {
-        console.log(error.message);
-    }
-  }
-  const addNewReview = async(title,newReview)=>{
-    try {
-      const docRef = await addDoc(collection(db, "reviews"), {
-        title: title,
-        review:newReview
-      });
-
-      console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    }
-  }
-
-export {addProduct,db,getProducts,getComments,getProductById ,addNewReview};
+ 
+export { db };

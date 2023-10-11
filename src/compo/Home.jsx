@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Product from "./Product";
 import "../styles/Home.css";
-import { getProducts } from "../firebase/firebase";
+import { getProducts } from "../firebase/productDb";
 
 function Home() {
   const [products, setProducts] = React.useState([]);
