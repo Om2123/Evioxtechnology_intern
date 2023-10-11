@@ -12,6 +12,7 @@ import Notfound from "./compo/NotFound/Notfound";
 import Orders from "./compo/Orders";
 import Register from "./compo/Register";
 import ProductDetail from "./compo/product/ProductDetail";
+import { StateProvider } from "./States/StateProvider";
 
 const HomePage = () => {
   return (
@@ -26,22 +27,23 @@ const HomePage = () => {
 
 function App() {
   return (
-    <BrowserRouter basename="/Amazon-Clone">
-      <div className="app">
-        <Header />
-        <Routes>
-          {/* Home Page Route */}
-          <Route path="/login" Component={Login} />
-          <Route path="/register" Component={Register} />
-          <Route path="/product/:id" Component={ProductDetail} />
-          <Route path="/checkout" Component={HomePage}></Route>
-          <Route path="/" Component={Home}></Route>
-          <Route path="/*" Component={Notfound}></Route>
-          <Route path="/orders" Component={Orders}></Route>
-        </Routes>
-        <Foot />
-      </div>
-    </BrowserRouter>
+      <BrowserRouter >
+
+        <div className="app">
+          <Header />
+          <Routes>
+            {/* Home Page Route */}
+            <Route path="/login" Component={Login} />
+            <Route path="/register" Component={Register} />
+            <Route path="/product/:id" Component={ProductDetail} />
+            <Route path="/checkout" Component={HomePage}></Route>
+            <Route path="/" Component={Home}></Route>
+            <Route path="/*" Component={Notfound}></Route>
+            <Route path="/orders" Component={Orders}></Route>
+          </Routes>
+          <Foot />
+        </div>
+      </BrowserRouter>
   );
 }
 

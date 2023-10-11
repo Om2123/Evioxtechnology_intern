@@ -3,7 +3,7 @@ import "../styles/AddButton.css";
 import "../styles/CheckoutProduct.css";
 import { useStateValue } from "../States/StateProvider";
 function CheckoutProduct({ id, title, image, price, rating }) {
-  const [ dispatch] = useStateValue();
+  const [dispatch] = useStateValue();
   const removeFromBasket = () => {
     // romove item from basket
     dispatch({
@@ -12,7 +12,7 @@ function CheckoutProduct({ id, title, image, price, rating }) {
     });
   };
   return (
-    <div className="checkoutProduct" style={{margin :'15px' }}>
+    <div className="checkoutProduct" style={{ margin: '15px' }}>
       <img className="checkoutProduct__image" src={image} alt={title} />
       <div className="checkoutProduct__info" >
         <p className="checkoutProduct__title">{title}</p>
@@ -28,8 +28,8 @@ function CheckoutProduct({ id, title, image, price, rating }) {
             ))}
         </div>
         <button onClick={removeFromBasket} className="add-to-cart-button">
-      <span>Remove From Basket</span>
-    </button>
+          <span>Remove From Basket</span>
+        </button>
       </div>
     </div>
   );

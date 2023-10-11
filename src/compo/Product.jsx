@@ -9,7 +9,6 @@ function Product({ id, title, image, price, rating }) {
   // console.log(basket);
   const addToBasket = () => {
     //dispatch item to data layer
-
     dispatch({
       type: "ADD_TO_BASKET",
       item: {
@@ -22,13 +21,13 @@ function Product({ id, title, image, price, rating }) {
     });
   };
   return (
-    <Link to={`/product/${id}`}  className="product" >
-      <div className="product__info">
-        <p>{title}</p>
-        <p className="product__price">
+    <div className="product" >
+      <div to={`/product/${id}`} className="product__info">
+        <Link  to={`/product/${id}`} >{title}</Link>
+        <Link className="product__price">
           <small>₹</small>
           <strong>{price}</strong>
-        </p>
+        </Link>
         <div className="product__rating">
           <p >🌟🌟🌟</p>
         </div>
@@ -40,7 +39,7 @@ function Product({ id, title, image, price, rating }) {
       </button>
 
 
-    </Link>
+    </div>
   );
 }
 
