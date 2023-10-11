@@ -1,24 +1,23 @@
 import React from "react";
 import "../styles/AddButton.css";
 import "../styles/Product.css";
-import { useStateValue } from "../States/StateProvider";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToBasket } from "../States/feat/cart/basketSlice";
 
 function Product({ id, title, image, price, rating }) {
-  const [dispatch] = useStateValue();
-  // console.log(basket);
-  const addToBasket = () => {
+  const dispatch = useDispatch()
+
+  const addToBaskets = () => {
     //dispatch item to data layer
-    dispatch({
-      type: "ADD_TO_BASKET",
-      item: {
-        id: id,
-        title: title,
-        image: image,
-        price: price,
-        rating: rating,
-      },
-    });
+     
+    dispatch(addToBasket({
+      id:id,
+      image:image,
+      title:title,
+      price:price,
+      rating:rating,
+    }))
   };
   return (
     <div className="product" >
@@ -34,7 +33,9 @@ function Product({ id, title, image, price, rating }) {
       </div>
       <img src={image} alt="canva" />
 
-      <button className="add-to-cart-button" onClick={addToBasket}>
+      <button className="add-to-cart-button"
+       onClick={addToBaskets}
+       >
         <span>Add to Cart</span>
       </button>
 

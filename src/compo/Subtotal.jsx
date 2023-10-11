@@ -1,11 +1,12 @@
 import React from "react";
 import "../styles/Subtotal.css";
-import { useStateValue } from "../States/StateProvider";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 function Subtotal() {
-  const [{ basket }] = useStateValue();
+  const basket = useSelector((state) => state.counter.basket)
   const sumOfBasket = basket.reduce((sum, product) => parseInt(sum) + parseInt(product.price), 0);
+  console.log(sumOfBasket);
   const handleCheckout = () => {
     axios.post('http://localhost:4242/create-checkout-session', { basket, sumOfBasket }, {
       headers: {
@@ -27,11 +28,11 @@ function Subtotal() {
   return (
     <div className="flex flex-col items-center py-4 border border-gray-300 rounded-md">
       <h4 className="text-xl mb-4">
-        Subtotal {basket.length} item: {sumOfBasket} rs
+        Subtotal : {basket.length} item:  {sumOfBasket} RS
       </h4>
 
       {basket.length !== 0 ? (
-        <button
+         <button
           onClick={handleCheckout}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md text-lg border border-blue-600 transition duration-300 ease-in-out"
         >
@@ -44,7 +45,7 @@ function Subtotal() {
         >
           Proceed to Checkout
         </button>
-      )}
+      )} 
     </div>
 
 

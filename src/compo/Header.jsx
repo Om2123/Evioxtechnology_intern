@@ -7,13 +7,16 @@ import {
   faMagnifyingGlass,
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { useStateValue } from "../States/StateProvider";
 import { getProducts } from "../firebase/firebase";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { addToBasket } from "../States/feat/cart/basketSlice";
 
 function Header() {
-  const [{ basket }] = useStateValue();
+  const basket = useSelector((state) => state.counter.basket)
+  const dispatch = useDispatch();
+
   const [querySearched, setQuery] = useState("");
   const [showProductList, setShowProductList] = useState(false);
   const [products, setProducts] = React.useState([]);
@@ -49,6 +52,15 @@ function Header() {
     setProducts(filteredData)
     setShowProductList(true);
   };
+  const addToBaskets =(prod , id)=>{
+    dispatch(addToBasket({
+      id:id,
+      title:prod.title.stringValue,
+      image:prod.image.stringValue,
+      price:prod.price.integerValue,
+      rating:prod.rating.integerValue,
+    }))
+  }
   const logout = async () => { await signOut(auth); }
   return (
     <div className="header" id="header">
@@ -106,6 +118,7 @@ function Header() {
                   <div className="md:ml-5">
                     <button
                       className="bg-yellow-500 text-white font-semibold py-2 px-4 rounded-full mr-4 hover:bg-yellow-600 transition duration-300"
+                      onClick={()=>addToBaskets(product.doc.data.value.mapValue.fields,product.doc.key.path.segments[6])}
                     >
                       Add to Cart
                     </button>

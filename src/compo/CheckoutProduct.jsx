@@ -1,15 +1,14 @@
 import React from "react";
 import "../styles/AddButton.css";
 import "../styles/CheckoutProduct.css";
-import { useStateValue } from "../States/StateProvider";
+import { useDispatch } from "react-redux";
+import { removeFromBasket } from "../States/feat/cart/basketSlice";
 function CheckoutProduct({ id, title, image, price, rating }) {
-  const [dispatch] = useStateValue();
-  const removeFromBasket = () => {
+  const dispatch = useDispatch();
+  const removeFromBaskets = () => {
     // romove item from basket
-    dispatch({
-      type: "REMOVE_FROM_BASKET",
-      id: id,
-    });
+    dispatch(removeFromBasket({id:id}))
+
   };
   return (
     <div className="checkoutProduct" style={{ margin: '15px' }}>
@@ -21,13 +20,12 @@ function CheckoutProduct({ id, title, image, price, rating }) {
           <strong>{price}</strong>
         </p>
         <div className="checkoutProduct__rating">
-          {Array(rating)
-            .fill()
-            .map((_, i) => (
-              <p>🌟</p>
-            ))}
+          
+            <p>🌟</p>
         </div>
-        <button onClick={removeFromBasket} className="add-to-cart-button">
+        <button 
+        onClick={removeFromBaskets} 
+        className="add-to-cart-button">
           <span>Remove From Basket</span>
         </button>
       </div>

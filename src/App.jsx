@@ -12,7 +12,8 @@ import Notfound from "./compo/NotFound/Notfound";
 import Orders from "./compo/Orders";
 import Register from "./compo/Register";
 import ProductDetail from "./compo/product/ProductDetail";
-import { StateProvider } from "./States/StateProvider";
+import { store } from './States/store'
+import { Provider } from 'react-redux'
 
 const HomePage = () => {
   return (
@@ -27,8 +28,8 @@ const HomePage = () => {
 
 function App() {
   return (
-      <BrowserRouter >
-
+    <BrowserRouter >
+      <Provider store={store}>
         <div className="app">
           <Header />
           <Routes>
@@ -43,7 +44,8 @@ function App() {
           </Routes>
           <Foot />
         </div>
-      </BrowserRouter>
+      </Provider>
+    </BrowserRouter>
   );
 }
 

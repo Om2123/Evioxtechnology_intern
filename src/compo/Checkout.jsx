@@ -1,10 +1,11 @@
 import React from "react";
 import "../styles/Checkout.css";
 import CheckoutProduct from "./CheckoutProduct";
-import { useStateValue } from "../States/StateProvider";
+import { useSelector } from "react-redux";
+
 function Checkout() {
+  const basket = useSelector((state) => state.counter.basket)
   
-  const [{ basket }] = useStateValue();
   return (
     <div className="checkout">
       <div className="checkout__left">
@@ -15,7 +16,7 @@ function Checkout() {
         />
         <div>
           <h2 className="checkout__title">Your Shopping Basket</h2>
-          {basket.map((item) => (
+         {basket.map((item) => (
             <CheckoutProduct
               id={item.id}
               title={item.title}
@@ -23,7 +24,8 @@ function Checkout() {
               price={item.price}
               rating={item.rating}
             />
-          ))}
+            
+          ))} 
         </div>
       </div>
     </div>
