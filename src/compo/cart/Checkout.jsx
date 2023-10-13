@@ -1,6 +1,5 @@
 import React from "react";
-import "../styles/Checkout.css";
-import CheckoutProduct from "./CheckoutProduct";
+import CheckoutProduct from "../CheckoutProduct";
 import { useSelector } from "react-redux";
 
 function Checkout() {

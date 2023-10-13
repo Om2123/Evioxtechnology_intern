@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import React, { useEffect, useState } from 'react'
-import { getOrders, removeOrderFB } from '../firebase/orderDb';
+import { getOrders, removeOrderFB } from '../../firebase/orderDb';
 
 export default function Orders() {
     const [user, setUser] = useState();

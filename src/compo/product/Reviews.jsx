@@ -6,6 +6,7 @@ export default function Reviews(props) {
     const [reviews, setReviews] = useState();
     const [showReviews, setShowReviews] = useState(false);
     const [newReview, setNewReview] = useState("");
+
     useEffect(() => {
         getComments(props.title).then((res) => {
             setReviews(res);
@@ -56,7 +57,6 @@ export default function Reviews(props) {
                         <div key={index} className="bg-gray-100 p-2 rounded mb-2 text-gray-800 text-lg">
                             {review.fields.review.stringValue}
                         </div>
-
                     ))}
             </div>
         </div>

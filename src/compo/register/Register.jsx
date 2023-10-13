@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import { createAccount } from '../firebase/firebase';
+import { createAccount } from '../../firebase/firebase';
 
 export default function Register() {
     const history = useNavigate();

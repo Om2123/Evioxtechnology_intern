@@ -6,6 +6,7 @@ import {getProductById} from "./../../firebase/productDb"
 
 export default function ProductDetail() {
   const [product, setProducts] = useState();
+
   const idd = useParams();
   const id = idd.id;
   useEffect(() => {
@@ -21,13 +22,9 @@ export default function ProductDetail() {
       .then(response => {
         window.location.href = response.data.sessionUrl
       })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+      .catch(error => {console.error('Error:', error);});
   }
   return (
-
-
     <div className="container mx-auto p-4">
       {product ?
         (<>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "../styles/Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
@@ -10,8 +9,9 @@ import { Link } from "react-router-dom";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { addToBasket } from "../States/feat/cart/basketSlice";
-import { getProducts } from "../firebase/productDb";
+import { addToBasket } from "../../../States/feat/cart/basketSlice";
+import { getProducts } from "../../../firebase/productDb";
+import SearchInput from "./SearchInput";
 
 function Header() {
   const basket = useSelector((state) => state.counter.basket)
@@ -48,10 +48,7 @@ function Header() {
     if (title.toLowerCase().includes(querySearched.toLowerCase())) return item;
     return null;
   });
-  const handleSearch = async () => {
-    setProducts(filteredData)
-    setShowProductList(true);
-  };
+  const handleSearch = async () => {setProducts(filteredData);setShowProductList(true);};
   const addToBaskets =(prod , id)=>{
     dispatch(addToBasket({
       id:id,
@@ -79,8 +76,8 @@ function Header() {
           Select your address
         </span>
       </div>
-      <div className="header__search">
-        <input
+      <div className="md:mx-4">
+        {/* <input
           className="header__searchInput"
           id="searchBar"
           placeholder="Search Amazon.in"
@@ -98,7 +95,8 @@ function Header() {
           onClick={handleSearch}
         >
           <FontAwesomeIcon icon={faMagnifyingGlass} />
-        </div>
+        </div> */}
+        <SearchInput/>
       </div>
 
       {showProductList && (

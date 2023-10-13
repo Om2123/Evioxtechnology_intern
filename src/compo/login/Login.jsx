@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import { signIn } from "./../firebase/firebase.js";
+import { signIn } from "../../firebase/firebase.js";
 import { Link } from "react-router-dom";
-import "../styles/Login.css";
 
 function Login() {
   const history = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const signInT = (e) => { e.preventDefault(); signIn(email, password); history("/") };
+  const [userInfo, serUserInfo] = useState({ email:"", password:"" });
+
+  const signInT = (e) => { e.preventDefault(); signIn(userInfo.email, userInfo.password); history("/") };
   return (
     <div className="bg-gray-100 min-h-screen flex items-center justify-center">
       <div className="max-w-md w-full p-6 space-y-6 bg-white rounded-lg shadow-lg">
@@ -31,8 +30,8 @@ function Login() {
                 type="text"
                 placeholder="Enter your e-mail"
                 className="w-full border rounded-md py-2 px-3 text-gray-700 focus:outline-none focus:border-blue-500"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={userInfo.email}
+                onChange={(e) => serUserInfo({ ...userInfo, email: e.target.value })}
               />
             </div>
             <div>
@@ -42,8 +41,8 @@ function Login() {
                 type="password"
                 placeholder="Enter your password"
                 className="w-full border rounded-md py-2 px-3 text-gray-700 focus:outline-none focus:border-blue-500"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={userInfo.password}
+                onChange={(e) => serUserInfo({ ...userInfo, password: e.target.value })}
               />
             </div>
             <button

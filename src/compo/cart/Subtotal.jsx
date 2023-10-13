@@ -1,9 +1,8 @@
 import React from "react";
-import "../styles/Subtotal.css";
-import axios from "axios";
+ import axios from "axios";
 import { useSelector } from "react-redux";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { addOrder } from "../firebase/orderDb";
+import { addOrder } from "../../firebase/orderDb";
 
 function Subtotal() {
   const basket = useSelector((state) => state.counter.basket)

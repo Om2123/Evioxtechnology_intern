@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
-import Product from "./Product";
-import "../styles/Home.css";
-import { getProducts } from "../firebase/productDb";
+import Product from "../Product";
+import { getProducts } from "../../firebase/productDb";
 
 function Home() {
   const [products, setProducts] = React.useState([]);
 
   useEffect(() => {
-    getProducts().then((products) => setProducts(products.docChanges));
+    // getProducts().then((products) => setProducts(products.docChanges));
       
   }, []);
 
@@ -51,13 +50,13 @@ function Home() {
           alt="Amazon Banner"
         />
 
-        <div className="home__row">
+        {/* <div className="home__row">
           {renderLargeProducts()}
         </div>
 
         <div className="home__row">
           {renderSmallProducts()}
-        </div>
+        </div> */}
       </div>
     </div>
   );

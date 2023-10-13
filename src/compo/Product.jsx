@@ -1,6 +1,4 @@
 import React from "react";
-import "../styles/AddButton.css";
-import "../styles/Product.css";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addToBasket } from "../States/feat/cart/basketSlice";

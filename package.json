@@ -1,7 +1,6 @@
 {
   "name": "amazon-frontend",
   "version": "0.1.0",
-  "homepage": "www.http://Om2123.github.io/Amazon-Clone",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
@@ -11,6 +10,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "appwrite": "^13.0.0",
     "axios": "^1.5.1",
     "cors": "^2.8.5",
     "firebase": "^10.4.0",
