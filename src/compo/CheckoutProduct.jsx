@@ -6,25 +6,50 @@ function CheckoutProduct({ id, title, image, price, rating }) {
   const dispatch = useDispatch();
   const removeFromBaskets = () => { dispatch(removeFromBasket({ id: id })) };
   return (
-    <div className="checkoutProduct" style={{ margin: '15px' }}>
-      <img className="checkoutProduct__image" src={image} alt={title} />
-      <div className="checkoutProduct__info" >
-        <p className="checkoutProduct__title">{title}</p>
-        <p className="checkoutProduct__price">
-          <small>₹</small>
-          <strong>{price}</strong>
-        </p>
-        <div className="checkoutProduct__rating">
+    <div className="block py-4 sm:grid sm:grid-cols-5 my-16 sm:my-3">
+    <div className="text-center sm:text-left">
+       
+      <img src={image} alt="" />
+    </div>
 
-          <p>🌟</p>
+    {/* Middle */}
+    <div className="col-span-3 mx-5 mb-4 sm:mb-0">
+      <p className="my-3">{title}</p>
+      <div className="flex">
+        {Array(rating)
+          .fill()
+          .map((_, i) => (
+            <>*</>
+          ))}
+      </div>
+      <p className="text-xs my-2 line-clamp-3">description</p>
+      {/* {quantity} × <Currency quantity={price * 71} currency="INR" /> ={" "} */}
+      <span className="font-bold">
+        {/* <Currency quantity={total * 71} currency="INR" />
+         */}
+         {price} Rs
+      </span>
+      
+    </div>
+
+    {/* Buttons on the right of the products */}
+    <div className="flex flex-col space-y-2 my-auto justify-self-end">
+      <div className="flex justify-between xs:justify-start">
+        <button className="button sm:p-1" onClick={removeFromBaskets}>
+          {/* <MinusSmIcon className="h-5 text-black" /> */}
+        </button>
+        <div className="p-2 whitespace-normal sm:p-1 sm:whitespace-nowrap">
+          Quantity: <span className="font-bold">1</span>
         </div>
-        <button
-          onClick={removeFromBaskets}
-          className="add-to-cart-button">
-          <span>Remove From Basket</span>
+        <button className="button sm:p-1" >
+          {/* <PlusIcon className="h-5 text-black" /> */}
         </button>
       </div>
+      <button className="button" onClick={removeFromBaskets}>
+        Remove from Basket
+      </button>
     </div>
+  </div>
   );
 }
 

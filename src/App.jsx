@@ -25,7 +25,6 @@ import { store } from './States/store'
 // adding css
 import "./styles/Home.css"
 import "./styles/Product.css"
-import "./styles/Header.css"
 import "./styles/AddButton.css"
 import "./styles/Checkout.css"
 import "./styles/CheckoutProduct.css"

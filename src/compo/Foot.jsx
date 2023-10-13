@@ -1,9 +1,10 @@
 import React from "react";
-
+ 
 const Foot = () => {
+
   return (
-    <footer className="py-6 bg-[#37475a] text-gray-300">
-      <div className="container mx-auto">
+    <footer className="py-6 bg-amazon_blue text-gray-300">
+      <div className="container mx-auto" >
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           <div className="text-center">
             <h3 className="font-semibold text-lg mb-2">Get to Know Us</h3>

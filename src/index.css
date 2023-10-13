@@ -6,3 +6,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.bg-amazon_blue{
+    background:#131921;
+}
+.bg-amazon_blue-light{
+    background:#232F3E;
+}

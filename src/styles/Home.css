@@ -7,21 +7,17 @@
   }
   .home__row {
     display: flex;
-    z-index: 1;
+    z-index: 100;
     margin-left: 5px;
     margin-right: 5px;
   }
   .home__image {
     width: 100%;
-    z-index: -1;
-    margin-bottom: -150px;
+    
+    z-index: 20;
+    margin-bottom: -200px;
     object-fit: contain;
 
-    mask-image: linear-gradient(
-      to bottom,
-      rgb(11, 115, 212),
-      rgba(196, 36, 224, 0)
-    );
   }
   
   /* Responsive Styles */
