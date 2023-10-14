@@ -1,7 +1,6 @@
-import React from "react";
+ import React from "react";
  
 const Foot = () => {
-
   return (
     <footer className="py-6 bg-amazon_blue text-gray-300">
       <div className="container mx-auto" >

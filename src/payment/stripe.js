@@ -2,7 +2,7 @@
 const stripe = require('stripe')('sk_test_51NLGBpSHVXcG68q7HpgnjfKsJKfjsQmwx9ZMJF82DN9Arf7cmgtxRFGLdZUpIOQNICqYlTd0M8RK5vo7fqx4A49H00dB7tr6sU');
 const express = require('express');
 const cors = require('cors');
-
+const pkey = "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";
 const app = express();
 app.use(express.static('public'));
 app.use(express.json()); // Parse JSON data in the request body
@@ -18,10 +18,10 @@ app.post('/create-checkout-session', async (req, res) => {
 
   const session = await stripe.checkout.sessions.create({
     line_items: [{
-        quantity: req.body.basket.length,
+        quantity: 2,
         price_data: {
           currency: 'inr',
-          unit_amount: req.body.sumOfBasket * 100,
+          unit_amount: 34 * 100,
           product_data: {
             name: 'Your products from the cart',
             description: 'To see the details please go back to cart',

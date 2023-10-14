@@ -17,7 +17,7 @@ export default function ProductDetail() {
       .then((res) => { setProducts(res) })
       .catch((er) => console.log(er))
   });
-
+  
   const buyNow = () => {
     singleProductCheckout(product)
       .then((res) => {

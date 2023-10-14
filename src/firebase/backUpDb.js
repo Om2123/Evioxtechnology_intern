@@ -31,5 +31,10 @@ const getProducts = async() => {
      });
     return doc;
 };
+const avatars = new appw.Avatars(client);
+const a = ()=>{
+  const fav = avatars.getFavicon("https://www.amazon.com/")
+  return fav;
 
-export { createProd,databases, getProducts };
+}
+export {a,avatars, createProd,databases, getProducts };
