@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.js": "/Evioxtechnology_intern/static/js/main.190691b6.chunk.js",
+    "main.js.map": "/Evioxtechnology_intern/static/js/main.190691b6.chunk.js.map",
+    "runtime-main.js": "/Evioxtechnology_intern/static/js/runtime-main.54f2ca73.js",
+    "runtime-main.js.map": "/Evioxtechnology_intern/static/js/runtime-main.54f2ca73.js.map",
+    "static/js/2.342b2186.chunk.js": "/Evioxtechnology_intern/static/js/2.342b2186.chunk.js",
+    "static/js/2.342b2186.chunk.js.map": "/Evioxtechnology_intern/static/js/2.342b2186.chunk.js.map",
+    "index.html": "/Evioxtechnology_intern/index.html",
+    "static/js/2.342b2186.chunk.js.LICENSE.txt": "/Evioxtechnology_intern/static/js/2.342b2186.chunk.js.LICENSE.txt",
+    "static/media/1.37705b82.png": "/Evioxtechnology_intern/static/media/1.37705b82.png",
+    "static/media/2.118782af.png": "/Evioxtechnology_intern/static/media/2.118782af.png",
+    "static/media/3.89b98cde.png": "/Evioxtechnology_intern/static/media/3.89b98cde.png",
+    "static/media/4.f2088b2e.png": "/Evioxtechnology_intern/static/media/4.f2088b2e.png",
+    "static/media/5.77a374d3.png": "/Evioxtechnology_intern/static/media/5.77a374d3.png",
+    "static/media/6.d6de5c7a.png": "/Evioxtechnology_intern/static/media/6.d6de5c7a.png",
+    "static/media/image404.836aeddb.svg": "/Evioxtechnology_intern/static/media/image404.836aeddb.svg",
+    "static/media/img-1.3cbc583d.jpg": "/Evioxtechnology_intern/static/media/img-1.3cbc583d.jpg",
+    "static/media/img-2.ccf8875e.jpg": "/Evioxtechnology_intern/static/media/img-2.ccf8875e.jpg",
+    "static/media/img-3.9eaf356a.jpg": "/Evioxtechnology_intern/static/media/img-3.9eaf356a.jpg",
+    "static/media/img-4.58465181.jpg": "/Evioxtechnology_intern/static/media/img-4.58465181.jpg",
+    "static/media/img-5.55bf9d4f.jpg": "/Evioxtechnology_intern/static/media/img-5.55bf9d4f.jpg",
+    "static/media/logo.765f9ddb.png": "/Evioxtechnology_intern/static/media/logo.765f9ddb.png",
+    "static/media/vid1.d5aa9b5d.mp4": "/Evioxtechnology_intern/static/media/vid1.d5aa9b5d.mp4",
+    "static/media/vid2.539e25a5.mp4": "/Evioxtechnology_intern/static/media/vid2.539e25a5.mp4"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.54f2ca73.js",
+    "static/js/2.342b2186.chunk.js",
+    "static/js/main.190691b6.chunk.js"
+  ]
+}
