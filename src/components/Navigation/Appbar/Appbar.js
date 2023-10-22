@@ -93,7 +93,7 @@ const Appbar = (props) => {
     <ElevationScroll {...props}>
       <Fragment>
         <AppBar position="fixed" className={classes.appBar}>
-          <Toolbar className={classes.toobarGutters} disableGutters>
+          <Toolbar className={classes.toobarGutters}  >
             <Hidden xsDown>
               <IconButton
                 color="inherit"

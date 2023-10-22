@@ -1,21 +1,14 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { useMediaQuery, Avatar } from "@material-ui/core";
-import { GridList, GridListTile } from "@material-ui/core";
-import { Grid, Button, Box, Typography, Paper } from "@material-ui/core";
-import {
-  Email,
-  PhoneCallback,
-} from "@material-ui/icons";
-import Carousel from "react-material-ui-carousel";
+ import { Grid, Button, Box, Typography, Paper } from "@material-ui/core";
+ import Carousel from "react-material-ui-carousel";
 import Image from "material-ui-image";
 import { AutoRotatingCarousel, Slide } from "material-auto-rotating-carousel";
 import Logo from "../../components/Navigation/Logo/Logo";
 import Video1 from "../../components/Videos/Video1";
 import Video2 from "../../components/Videos/Video2";
-import { tileData , useStyles, featureList, slideItems } from "./dashboard-nd";
-
-
+import { tileData, useStyles, featureList, slideItems } from "./dashboard-nd";
 
 const AutoRotatingCarouselModal = ({ handleOpen, setHandleOpen, isMobile }) => {
   return (
@@ -53,7 +46,7 @@ function Dashboard() {
   const matchLG = useMediaQuery("(min-width:1400px)");
   const user = JSON.parse(localStorage.getItem("user"));
   const [handleOpen, setHandleOpen] = useState({ open: false });
- 
+
   const handleClick = () => {
     setHandleOpen({ open: true });
   };
@@ -62,7 +55,7 @@ function Dashboard() {
     <svg
       viewBox="0 0 1430 140"
       className={classes.topSwoop}
-      fill={  "#303030"  }
+      fill={"#303030"}
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M1440 0v59.969c-65.287-39.594-188.865-55.343-370.736-47.248C766 26.221 627.87 140 277 140 171.698 140 79.365 124.417 0 93.25V0h1440z"></path>
@@ -73,7 +66,7 @@ function Dashboard() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1430 140"
-      fill={    "#303030"  }
+      fill={"#303030"}
       className={classes.bottomSwoop}
     >
       <path d="M0 140h1440V46.75C1360.635 15.583 1268.302 0 1163 0 812.13 0 674 113.78 370.736 127.279 188.866 135.374 65.286 119.625 0 80.03V140z"></path>
@@ -118,9 +111,7 @@ function Dashboard() {
             </Box>
           ))}
         </Grid>
-        <Box>{bottomSwoop} 
-         
-        </Box>
+        <Box>{bottomSwoop}</Box>
       </Box>
 
       <Box my={5} style={{ minHeight: 520 }}>
@@ -272,20 +263,21 @@ function Dashboard() {
         {bottomSwoop}
       </Box>
 
-      <Box my={5} display="flex" alignContent="center" justifyContent="center">
-        <Box width="100vh">
-          <GridList cellHeight={160} className={classes.gridList} cols={3}>
+      <div className="my-5 flex justify-center">
+        <div className="">
+          <div className="grid grid-cols-3 gap-4">
             {tileData.map((tile) => (
-              <GridListTile key={tile.img} cols={tile.cols || 1}>
-                <img src={tile.img} alt={tile.title} />
-              </GridListTile>
+              <div key={tile.img} className="col-span-1">
+                <img src={tile.img} alt={tile.title} className="h-40 w-full" />
+              </div>
             ))}
-          </GridList>
-          <Box mt={4}>
+          </div>
+          <div className="mt-4 w-3/4">
+            {/* Replace 'Video1' with your video component */}
             <Video1 />
-          </Box>
-        </Box>
-      </Box>
+          </div>
+        </div>
+      </div>
 
       <Box className={classes.intro}>
         {topSwoop}
@@ -321,28 +313,58 @@ function Dashboard() {
           </Box>
         </Box>
       </Box>
-      <Box m={1} display="flex">
-        <Box ml={1} alignItems="left" display="flex">
+      <div className="m-1 flex">
+        <div className="ml-1 flex items-left">
+          {/* You can replace 'Logo' with an image or SVG logo */}
           <Logo />
-        </Box>
-        <Box mt={1} display="flex" flexDirection="column">
-          <Box display="flex">
-            <Email />
-            <Box ml={1}>
-              <Typography>contact@math-universe.com</Typography>
-            </Box>
-          </Box>
-          <Box display="flex">
-            <PhoneCallback />
-            <Box ml={1}>
-              <Typography>+216 50 549 080</Typography>
-            </Box>
-          </Box>
-        </Box>
-      </Box>
+        </div>
+        <div className="mt-1 flex flex-col">
+          <div className="flex">
+            {/* Replace 'Email' with an email icon or symbol */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M2 3a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H3a1 1 0 01-1-1V3zm1-1a2 2 0 012-2h10a2 2 0 012 2v14a2 2 0 01-2 2H3a2 2 0 01-2-2V3z"
+                clipRule="evenodd"
+              />
+              <path
+                fillRule="evenodd"
+                d="M2.293 4.293a1 1 0 011.414 0L10 10.586l6.293-6.293a1 1 0 111.414 1.414L11.414 12l6.293 6.293a1 1 0 01-1.414 1.414L10 13.414l-6.293 6.293a1 1 0 01-1.414-1.414L8.586 12 2.293 5.707a1 1 0 010-1.414z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <div className="ml-1">contact@math-universe.com</div>
+          </div>
+          <div className="flex">
+            {/* Replace 'PhoneCallback' with a phone icon or symbol */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M2 3a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H3a1 1 0 01-1-1V3zm1-1a2 2 0 012-2h10a2 2 0 012 2v14a2 2 0 01-2 2H3a2 2 0 01-2-2V3z"
+                clipRule="evenodd"
+              />
+              <path
+                fillRule="evenodd"
+                d="M5 10a1 1 0 011-1h2a1 1 0 110 2H6a1 1 0 01-1-1zM9 7a1 1 0 011-1h2a1 1 0 110 2H10a1 1 0 01-1-1zM5 14a1 1 0 011-1h2a1 1 0 110 2H6a1 1 0 01-1-1zM9 11a1 1 0 011-1h2a1 1 0 110 2H10a1 1 0 01-1-1z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <div className="ml-1">+216 50 549 080</div>
+          </div>
+        </div>
+      </div>
     </Fragment>
   );
 }
-
 
 export default Dashboard;

@@ -1,7 +1,7 @@
 import React from "react";
 import Badge from "@material-ui/core/Badge";
 import Avatar from "@material-ui/core/Avatar";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
+import {   withStyles } from "@material-ui/core/styles";
   
 const StyledBadge = withStyles((theme) => ({
   badge: {
@@ -32,22 +32,15 @@ const StyledBadge = withStyles((theme) => ({
   },
 }))(Badge);
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    // [theme.breakpoints.up("sm")]: {
-    //   "& > *": {
-    //     marginLeft: theme.spacing(1),
-    //   },
-    // },
-  },
-}));
+ 
 
 const AvatarItem = ({ onSideOpen }) => {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div
+    //  className={classes.root}
+     >
       <StyledBadge
         overlap="circle"
         anchorOrigin={{

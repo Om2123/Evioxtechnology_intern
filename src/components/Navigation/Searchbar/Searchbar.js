@@ -1,78 +1,11 @@
-import React, { useState, useEffect, useRef } from "react"; 
+import React, { useState, useEffect, useRef } from "react";
 
 import { Link } from "react-router-dom";
-import { Divider } from "@material-ui/core";
-import { fade, makeStyles } from "@material-ui/core/styles";
+  
 
-import InputBase from "@material-ui/core/InputBase";
-
-import SearchIcon from "@material-ui/icons/Search";
-
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import Avatar from "@material-ui/core/Avatar";
-
-const useStyles = makeStyles((theme) => ({
-  search: {
-    position: "relative",
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    "&:hover": {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
-    },
-    marginRight: theme.spacing(1),
-    marginLeft: theme.spacing(2),
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(1),
-      width: "auto",
-    },
-  },
-  searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  inputRoot: {
-    color: "inherit",
-    width: "100%",
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create("width"),
-    [theme.breakpoints.up("sm")]: {
-      width: "15ch",
-      "&:focus": {
-        width: "28ch",
-      },
-    },
-  },
-  searchResult: {
-    position: "absolute",
-    top: 40,
-    left: 0,
-    width: "100%",
-    maxHeight: "40vh",
-    overflowY: "auto",
-    backgroundColor: theme.palette.background.paper,
-  },
-  link: {
-    textDecoration: "none",
-    textTransform: "none",
-    color: "darkgray",
-  },
-}));
+ 
 
 const Searchbar = (props) => {
-  const classes = useStyles();
   const { courseList } = props;
   const { onfetchCourses } = props;
   const [keyWord, setKeyWord] = useState(null);
@@ -81,7 +14,7 @@ const Searchbar = (props) => {
 
   if (typingTimeoutRef.current) {
     clearTimeout(typingTimeoutRef.current);
-  };
+  }
 
   useEffect(() => {
     typingTimeoutRef.current = setTimeout(() => {
@@ -91,45 +24,62 @@ const Searchbar = (props) => {
   }, [onfetchCourses, keyWord]);
 
   return (
-    <div className={classes.search}>
-      <div className={classes.searchIcon}>
-        <SearchIcon />
+    <div className="relative   rounded-md bg-opacity-15 hover:bg-opacity-25 mr-1 sm:mr-0 w-full sm:w-auto">
+      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+        <svg
+          className="w-5 h-5 text-gray-400"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M21 21l-6-6m0 0l-6-6m6 6l-6-6m6 6H3"
+          ></path>
+        </svg>
       </div>
-      <InputBase
+      <input
         type="search"
-        placeholder="Search…"
-        classes={{
-          root: classes.inputRoot,
-          input: classes.inputInput,
-        }}
-        inputProps={{ "aria-label": "search" }}
+        placeholder="Search..."
+        className="py-2 pl-10 pr-4 block w-full rounded-md bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring focus:border-blue-300 focus:ring-blue-200 focus:ring-opacity-50"
         onChange={(event) => setKeyWord(event.target.value)}
+        aria-label="search"
       />
       {show && keyWord && courseList && courseList.length > 0 ? (
-        <List className={classes.searchResult}>
+        <ul className="mt-1 border border-gray-300 rounded-md shadow-lg absolute left-0 w-full bg-white z-10">
           {courseList.map((course) => (
-            <Link
-              key={course.maKhoaHoc}
-              to={`/courses/${course.maKhoaHoc}`}
-              className={classes.link}
-              onClick={() => setShow(false)}
-            >
-              <ListItem>
-                <ListItemAvatar>
-                  <Avatar>
-                    <img src={course.hinhAnh} alt={course.tenKhoaHoc} />
-                  </Avatar>
-                </ListItemAvatar>
-                <ListItemText primary={course.tenKhoaHoc} />
-              </ListItem>
-              <Divider />
-            </Link>
+            <li key={course.maKhoaHoc}>
+              <Link
+                to={`/courses/${course.maKhoaHoc}`}
+                onClick={() => setShow(false)}
+                className="block hover:bg-blue-100 px-4 py-2 transition duration-150"
+              >
+                <div className="flex items-center">
+                  <div className="flex-shrink-0">
+                    <img
+                      src={course.hinhAnh}
+                      alt={course.tenKhoaHoc}
+                      className="h-8 w-8 rounded-full"
+                    />
+                  </div>
+                  <div className="ml-3">
+                    <p className="text-sm font-medium text-gray-900">
+                      {course.tenKhoaHoc}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            </li>
           ))}
-        </List>
+        </ul>
       ) : null}
     </div>
   );
 };
 
- 
-export default (Searchbar);
+export default Searchbar;
